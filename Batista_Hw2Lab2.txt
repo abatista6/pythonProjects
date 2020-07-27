@@ -1,0 +1,116 @@
+##################### HOMEWORK 2 ########################
+
+#Adrianna Batista
+#9/21/2018
+#Textbook Question #23 to build a program that finds pairs with a sum matching a given value
+
+#Program Description Output
+print("This program will take an input of n integers to make up list N and an input of a sum value.")
+print("The program will find a pair of integers with sum equal to the given sum value. \n")
+
+#User Data Input
+size=int(input("How many integers would you like to input?: "))
+print("\nInput values to populate list N:")
+
+#List creation and fill
+myList=[size]
+for p in range(size):
+    x=str(p+1) + " : "
+    temp=int(input("      Value #" + x))
+    myList.append(temp)
+
+find_sum=int(input("Input sum: "))
+
+#variable assignment
+checker=bool(False)
+myPairs=[]
+match=int(0)
+b=int(0)
+
+#List sorting and iteration
+for i in range(1, size):
+    for j in range(i+1,size+1):        
+        if((myList[i]+myList[j]==find_sum) or (myList[j]+myList[i]==find_sum)):
+            checker=True
+            match+=1
+            myPairs.append(myList[i])
+            myPairs.append(myList[j])
+
+#Interpret and display program results
+if(checker==True):
+    print(match," pair(s) have been found that match the given sum.")
+    while(match>0 and b<match*2):
+        print('(',myPairs[b],',',myPairs[b+1],')')
+        b+=2
+else:
+    print("Sorry there is no such pair of values")
+
+#End of Program
+print("\n End of program.")
+
+############################ LAB 2 ###########################
+
+#Adrianna Batista
+#9/21/2018
+#Lab #2: program designed to find the slope and distance between two given points
+
+#Import of math library to enable functions
+import math
+
+#Program Output & User Data Input
+print("Enter coordinates of two points to find the slope and the distance between them")
+x1=float(input("Enter x1: "))
+y1=float(input("Enter y1: "))
+x2=float(input("Enter x2: "))
+y2=float(input("Enter y2: "))
+
+#Variable Formulas & Assignment
+s=(y2-y1) / (x2-x1)
+slope=float("{0:.5f}".format(s))
+dist=math.sqrt(math.pow((x2-x1),2)+math.pow((y2-y1),2))
+distance=float("{0:.5f}".format(dist))
+
+#Output Results
+print("Slope is: ", slope)
+print("Distance is: ", distance)
+
+#End of Program
+print("\n End of Program.")
+
+###################### SCRIPT PROGRAM OUTPUT ########################
+Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 27 2018, 04:59:51) [MSC v.1914 64 bit (AMD64)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+ RESTART: C:\Users\adria\AppData\Local\Programs\Python\Python37\Line_Slope.py 
+Enter coordinates of two points to find the slope and the distance between them
+Enter x1: 4.5
+Enter y1: -5.5
+Enter x2: 6.6
+Enter y2: -6.5
+Slope is:  -0.47619
+Distance is:  2.32594
+
+ End of Program.
+>>> 
+ RESTART: C:\Users\adria\AppData\Local\Programs\Python\Python37\Find_Matching_Sum.py 
+This program will take an input of n integers to make up list N and an input of a sum value.
+The program will find a pair of integers with sum equal to the given sum value. 
+
+How many integers would you like to input?: 7
+
+Input values to populate list N:
+      Value #1 : 3
+      Value #2 : 8
+      Value #3 : 13
+      Value #4 : 2
+      Value #5 : 17
+      Value #6 : 18
+      Value #7 : 10
+Input sum: 20
+2  pair(s) have been found that match the given sum.
+( 3 , 17 )
+( 2 , 18 )
+
+ End of program.
+>>> 
+
